@@ -6,7 +6,7 @@ const puerto = 3000
 app.use(express.json());
 
 app.get('/', function (req, res) {
-    res.send('Hello world')
+    res.send('Hello world Jenkins and Kubernetes')
 })
 
 app.listen(puerto, (err) => {
