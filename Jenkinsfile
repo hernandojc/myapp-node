@@ -1,5 +1,5 @@
 pipeline {
-    agent { dockerfile true}
+    agent { dockerfile true }
     stages {
         stage('Inicianco') {
             steps {
@@ -8,10 +8,9 @@ pipeline {
             }
         }
         stage('Construcción Imagen Docker') {
-            steps {
-                echo 'Se procede a construir la imagen'
+            steps { 
                 script {
-                    docker.build('myapp_node:01')
+                    app = docker.build('myapp_node:01')
                 }
             }
         }
