@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker 'myapp_node:v1'
+    }
     stages {
         stage('Inicianco') {
             steps {
