@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Se procede a construir la imagen'
                 script {
-                    docker.build('nombre_de_tu_imagen:tag')
+                    docker.build('myapp_node:01')
                 }
             }
         }
