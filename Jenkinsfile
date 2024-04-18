@@ -1,5 +1,5 @@
 pipeline {
-    agent { dockerfile true }
+    agent any
     stages {
         stage('Inicianco') {
             steps {
@@ -9,6 +9,7 @@ pipeline {
         }
         stage('Construcción Imagen Docker') {
             steps { 
+                echo 'Se esta iniciando el CI...'
                 script {
                     app = docker.build('myapp_node:01')
                 }
