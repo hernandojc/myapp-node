@@ -11,6 +11,7 @@ pipeline {
             steps {
                 script {
                     if (!fileExists ('Dockerfile')) {
+                        echo 'Se crea un dockerfile'
                         writeFile file: 'Dockerfile', text: 'FROM node:5.3-onbuild'
                     }
                 }
