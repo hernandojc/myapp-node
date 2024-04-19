@@ -20,17 +20,9 @@ pipeline {
         stage('Construcción Imagen Docker') {
             steps {
                 echo 'iniciando construccion imagen'
-            }
-            agent {
-                // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
-                dockerfile {
-                    filename 'Dockerfile.build'
-                    dir 'build'
-                    label 'myapp-node'
-                    additionalBuildArgs  '--build-arg version=1.0.2'
-                    args '-v /tmp:/tmp'
+                script {
+                    kubernetes.image().withName("myapp-node").build().fromPath(".")
                 }
             }
-        }
     }
 }
