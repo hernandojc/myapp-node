@@ -9,8 +9,10 @@ pipeline {
         }
         stage('Validacion Dockerfile') {
             steps {
-                if (!fileExists ('Dockerfile')) {
-                    writeFile file: 'Dockerfile', text: 'FROM node:5.3-onbuild'
+                script {
+                    if (!fileExists ('Dockerfile')) {
+                        writeFile file: 'Dockerfile', text: 'FROM node:5.3-onbuild'
+                    }
                 }
             }
         }
