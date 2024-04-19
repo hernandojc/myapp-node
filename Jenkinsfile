@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Construcción Imagen Docker') {
             steps { 
-                echo 'Se esta iniciando el CI...'
+                echo 'Se procede a construir la imagen...'
                 script {
                     app = docker.build('myapp_node:01')
                 }
