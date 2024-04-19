@@ -18,11 +18,14 @@ pipeline {
             }
         }
         stage('Construcción Imagen Docker') {
+            node {
+                kubernetes.image().withName("myapp-node").build().fromPath(".")
+
+            }
             steps { 
                 echo 'Se procede a construir la imagen...'
-                script {
-                    kubernetes.image().withName("myapp-node").build().fromPath(".")
-                }
+                // script {
+                // }
             }
         }
     }
