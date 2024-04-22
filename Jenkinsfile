@@ -21,8 +21,7 @@ pipeline {
             steps { 
                 echo 'Se procede a construir la imagen...'
                 script {
-                    kubernetes.image().withName("myapp-node").build().fromPath(".")
-                    // sh "docker build -f . -t myapp-node:1.0.0.${BUILD_ID} ."
+                    sh "docker build -f . -t myapp-node:1.0.0.${BUILD_ID} ."
                 }
             }
         }
